@@ -1,0 +1,3 @@
+Product 1: Cheese - 7.00lv
+Product 2: Ham - 5.50lv
+Product 3: Bread - 1.50lv
