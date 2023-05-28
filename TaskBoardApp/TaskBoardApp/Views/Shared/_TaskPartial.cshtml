@@ -1,0 +1,21 @@
+﻿@model ICollection<TaskViewModel>
+
+@foreach (var boardTask in Model)
+{
+	<div class="card" style="width: 20rem;">
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item"><span class="fw-bold">Title: </span>@boardTask.Title</li>
+			<li class="list-group-item"><span class="fw-bold">Description: </span>@boardTask.Description</li>
+			<li class="list-group-item"><span class="fw-bold">Actions: </span>
+			<a asp-controller="Tasks" asp-action="Details" asp-route-id="@boardTask.Id" class="btn btn-success mb-2">View</a>
+			<span></span>
+			@if (this.User.Identity.Name == boardTask.Owner)
+				{
+					<a asp-controller="Tasks" asp-action="Edit" asp-route-id="@boardTask.Id" class="btn btn-primary mb-2">Edit</a>
+					<span></span>
+					<a asp-controller="Tasks" asp-action="Delete" asp-route-id="@boardTask.Id" class="btn btn-danger mb-2">Delete</a>
+				}
+			</li>
+		</ul>
+	</div>
+}
